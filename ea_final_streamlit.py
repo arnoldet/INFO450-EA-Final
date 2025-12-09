@@ -27,7 +27,7 @@ with st.sidebar:
    ["Fema Data", "Histogram", "Boxplot"])
 
   st.divider()
-  st.markdown("Because of the large data it can take a moment for the content to load")
+  st.markdown("Because of the large dataset it can take a moment for the content to load")
   
 if display == "Fema Data":
   st.subheader("Data Preview")
@@ -39,10 +39,10 @@ elif display == "Histogram":
   st.subheader("Histogram of Repair Amount")
   fig_hist = px.histogram(df, x='repairAmount', nbins = 30, title='Distribution of Repair Amounts')
   st.plotly_chart(fig_hist)
-  st.markdown("*Evan's Insight:* Something or other")
+  st.markdown("*Evan's Insight:* The distribution of repair amounts in our data is heavily skewed to the left. This means that there are likely a few high repair amounts in our data that are raising the average above the median.")
 elif display == "Boxplot":
   st.subheader("Boxplot: Repair Amount by TSA Eligibility")
   fig_box = px.box(df, x='tsaEligible', y='repairAmount', title='Repair Amounts by TSA Eligibility',
                    labels={"tsaEligible":"TSA Eligible (1=Yes, 0=No)","repairAmount":"Repair_Amount"})
   st.plotly_chart(fig_box)
-  st.markdown("*Evan's Insight:* Something or other")
+  st.markdown("*Evan's Insight:* The sample that I randomly took from the larger dataset I used for my model appears to have a large amount of outliers according to this boxplot. The median in both eligible and non eligible seem to be really close which is interesting.")
