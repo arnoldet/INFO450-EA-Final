@@ -20,15 +20,27 @@ import plotly.express as px
 df = pd.read_csv('fema_small.csv')
 
 st.title("Fema Dashboard")
-st.subheader("Data Preview")
-st.write(df.head())
+st.title("Fema Dashboard")
 
-st.subheader("Histogram of Repair Amount")
-fig_hist = px.histogram(df, x='repairAmount', nbins = 30, title='Distribution of Repair Amounts')
-st.plotly_chart(fig_hist)
+st.sidebar.header("Display")
+with st.sidebar:
+  display = st.sidebar.selectbox("What would you like to see?",
+   ["Fema Data", "Histogram", "Boxplot"])
+  
+if display == "Fema Data":
+  st.subheader("Data Preview")
+  st.write(df.head())
 
-st.subheader("Boxplot: Repair Amount by TSA Eligibility")
-fig_box = px.box(df, x='tsaEligible', y='repairAmount', title='Repair Amounts by TSA Eligibility',
-                 labels={"tsaEligible":"TSA Eligible (1=Yes, 0=No)","repairAmount":"Repair_Amount"})
-st.plotly_chart(fig_box)
-st.markdown("*Insight:* Something or other")
+  st.subheader("Summary Statistics")
+  st.write(df.describe())
+elif display == "Histogram":
+  st.subheader("Histogram of Repair Amount")
+  fig_hist = px.histogram(df, x='repairAmount', nbins = 30, title='Distribution of Repair Amounts')
+  st.plotly_chart(fig_hist)
+  st.markdown("*Evan's Insight:* Something or other")
+elif display == "Boxplot":
+  st.subheader("Boxplot: Repair Amount by TSA Eligibility")
+  fig_box = px.box(df, x='tsaEligible', y='repairAmount', title='Repair Amounts by TSA Eligibility',
+                   labels={"tsaEligible":"TSA Eligible (1=Yes, 0=No)","repairAmount":"Repair_Amount"})
+  st.plotly_chart(fig_box)
+  st.markdown("*Evan's Insight:* Something or other")
