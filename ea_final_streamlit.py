@@ -20,7 +20,6 @@ import plotly.express as px
 df = pd.read_csv('fema_small.csv')
 
 st.title("Fema Dashboard")
-st.title("Fema Dashboard")
 
 st.sidebar.header("Display")
 with st.sidebar:
