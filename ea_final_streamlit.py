@@ -16,16 +16,8 @@ except ModuleNotFoundError:
 
 import pandas as pd
 import plotly.express as px
-import urllib.request, os, time
 
-url = "https://storage.googleapis.com/info_450/IndividualAssistanceHousingRegistrantsLargeDisasters%20(1).csv"
-filename = "fema_disaster_data.csv"
-
-start = time.time()
-print(f" Downloading {filename}...")
-urllib.request.urlretrieve(url, filename)
-
-df = pd.read_csv('fema_disaster_data.csv', on_bad_lines='skip')
+df = pd.read_csv('fema_small.csv')
 
 st.title("Fema Dashboard")
 st.subheader("Data Preview")
