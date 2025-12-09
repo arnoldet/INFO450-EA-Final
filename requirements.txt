@@ -3,6 +3,5 @@ plotly
 pandas
 numpy
 plotly.express
-urllib.request 
 os 
 time
