@@ -2,3 +2,6 @@ streamlit
 plotly
 pandas
 plotly.express
+urllib.request 
+os 
+time
