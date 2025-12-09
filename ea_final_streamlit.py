@@ -25,6 +25,8 @@ st.sidebar.header("Display")
 with st.sidebar:
   display = st.sidebar.selectbox("What would you like to see?",
    ["Fema Data", "Histogram", "Boxplot"])
+  with st.expander
+    st.markdown("Stuff")
   
 if display == "Fema Data":
   st.subheader("Data Preview")
