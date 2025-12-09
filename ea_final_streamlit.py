@@ -26,7 +26,8 @@ with st.sidebar:
   display = st.sidebar.selectbox("What would you like to see?",
    ["Fema Data", "Histogram", "Boxplot"])
 
-  st.markdown("Stuff")
+  st.divider()
+  st.markdown("Because of the large data it can take a moment for the content to load")
   
 if display == "Fema Data":
   st.subheader("Data Preview")
