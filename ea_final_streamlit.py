@@ -25,7 +25,7 @@ start = time.time()
 print(f" Downloading {filename}...")
 urllib.request.urlretrieve(url, filename)
 
-df = pd.read_csv('fema_disaster_data.csv')
+df = pd.read_csv('fema_disaster_data.csv', on_bad_lines='skip')
 
 st.title("Fema Dashboard")
 st.subheader("Data Preview")
